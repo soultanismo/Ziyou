@@ -1,6 +1,6 @@
 //
 //  VarHolder.c
-//  tw3lve
+//  Ziyou
 //
 //  Created by Tanay Findley on 4/7/19.
 //  Copyright © 2019 Tanay Findley. All rights reserved.
@@ -12,16 +12,16 @@ uint64_t kbase;
 uint64_t ktask;
 uint A12 = 0;
 uint64_t task_self_addr_cache;
-uint64_t selfproc;
+uint64_t selfproc_ffs;
 
 uint64_t get_selfproc()
 {
-    return selfproc;
+    return selfproc_ffs;
 }
 
 void set_selfproc(uint64_t proc)
 {
-    selfproc = proc;
+    selfproc_ffs = proc;
 }
 
 
