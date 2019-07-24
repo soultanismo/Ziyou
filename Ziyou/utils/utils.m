@@ -55,6 +55,7 @@
 #include <sys/sysctl.h>
 
 bool runShenPatchOWO = false;
+uint64_t selfproc_cached;
 
 
 char *sysctlWithName(const char *name) {
@@ -441,7 +442,7 @@ void runVoucherSwap() {
         
         kernel_slide_init();
         kbase = (kernel_slide + KADD_SEARCH);
-        
+        selfproc_cached = selfproc();
         runShenPatchOWO = true;
         
     } else {
@@ -467,7 +468,7 @@ void runSockPuppet()
     {
         kbase = find_kernel_base_sockpuppet();
         kernel_slide = (kbase - KADD_SEARCH);;
-        
+        selfproc_cached = get_proc_struct_for_pid(getpid());
         runShenPatchOWO = true;
         
     }
@@ -803,7 +804,7 @@ void getOffsets() {
     
     if (!canRead(original_kernel_cache_path))
     {
-        swap_sandbox(selfproc(), KPTR_NULL);
+        swap_sandbox(selfproc_cached, KPTR_NULL);
     }
     
     NSString *homeDirectory = NSHomeDirectory();
