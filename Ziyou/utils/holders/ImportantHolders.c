@@ -12,6 +12,18 @@ uint64_t kbase;
 uint64_t ktask;
 uint A12 = 0;
 uint64_t task_self_addr_cache;
+uint64_t selfproc;
+
+uint64_t get_selfproc()
+{
+    return selfproc;
+}
+
+void set_selfproc(uint64_t proc)
+{
+    selfproc = proc;
+}
+
 
 void set_task_self_addr(uint64_t tsa)
 {

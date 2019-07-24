@@ -462,13 +462,13 @@ void runVoucherSwap() {
 void runSockPuppet()
 {
     
-    set_tfp0(get_tfp0());
+    get_tfp0();
     
     if (MACH_PORT_VALID(tfp0))
     {
         kbase = find_kernel_base_sockpuppet();
-        kernel_slide = (kbase - KADD_SEARCH);;
-        selfproc_cached = get_proc_struct_for_pid(getpid());
+        kernel_slide = (kbase - KADD_SEARCH);
+        selfproc_cached = get_selfproc();
         runShenPatchOWO = true;
         
     }
