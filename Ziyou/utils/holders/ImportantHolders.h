@@ -23,4 +23,7 @@ void setA12(uint a12);
 void set_tfp0(mach_port_t tfp0wo);
 
 void set_task_self_addr(uint64_t tsa);
+
+void set_selfproc(uint64_t proc);
+uint64_t get_selfproc(void);
 #endif /* ImportantHolders_h */
