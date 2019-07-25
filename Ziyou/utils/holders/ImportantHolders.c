@@ -12,7 +12,7 @@ uint64_t kbase;
 uint64_t ktask;
 uint A12 = 0;
 uint64_t task_self_addr_cache;
-uint64_t selfproc_ffs;
+uint64_t selfproc_ffs = 0;
 
 uint64_t get_selfproc()
 {

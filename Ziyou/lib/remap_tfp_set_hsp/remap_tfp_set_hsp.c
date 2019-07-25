@@ -18,6 +18,7 @@
 #include "OffsetHolder.h"
 #include <sched.h>
 #include <sys/mman.h>
+#include "shenanigans.h"
 #include <unistd.h>
 
 #include "ImportantHolders.h"
@@ -42,13 +43,47 @@ uint64_t make_fake_task(uint64_t vm_map) {
     return fake_task_kaddr;
 }
 
+bool iterate_proc_list(void (^handler)(kptr_t, pid_t, bool *)) {
+    bool ret = false;
+    bool iterate = true;
+    kptr_t proc = get_kernel_proc_struct_addr();
+    while (KERN_POINTER_VALID(proc) && iterate) {
+        pid_t const pid = ReadKernel32(proc + koffset(KSTRUCT_OFFSET_PROC_PID));
+        handler(proc, pid, &iterate);
+        if (!iterate) break;
+        proc = ReadKernel64(proc + koffset(KSTRUCT_OFFSET_PROC_P_LIST) + sizeof(kptr_t));
+    }
+    ret = true;
+out:;
+    return ret;
+}
+
+kptr_t get_proc_struct_for_pid_ff(pid_t pid)
+{
+    __block kptr_t proc = KPTR_NULL;
+    void (^const handler)(kptr_t, pid_t, bool *) = ^(kptr_t found_proc, pid_t found_pid, bool *iterate) {
+        if (found_pid == pid) {
+            proc = found_proc;
+            *iterate = false;
+        }
+    };
+    iterate_proc_list(handler);
+out:;
+    return proc;
+}
+
 uint64_t get_proc_struct_for_pid(pid_t pid)
 {
-    uint64_t proc = ReadKernel64(ReadKernel64(GETOFFSET(kernel_task)) + koffset(KSTRUCT_OFFSET_TASK_BSD_INFO));
-    while (proc) {
-        if (ReadKernel32(proc + koffset(KSTRUCT_OFFSET_PROC_PID)) == pid)
-            return proc;
-        proc = ReadKernel64(proc + koffset(KSTRUCT_OFFSET_PROC_P_LIST));
+    if (get_selfproc() == 0)
+    {
+        uint64_t proc = ReadKernel64(ReadKernel64(GETOFFSET(kernel_task)) + koffset(KSTRUCT_OFFSET_TASK_BSD_INFO));
+        while (proc) {
+            if (ReadKernel32(proc + koffset(KSTRUCT_OFFSET_PROC_PID)) == pid)
+                return proc;
+            proc = ReadKernel64(proc + koffset(KSTRUCT_OFFSET_PROC_P_LIST));
+        }
+    } else {
+        return get_selfproc();
     }
     return 0;
 }
