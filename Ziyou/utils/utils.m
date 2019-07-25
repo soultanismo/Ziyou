@@ -442,7 +442,7 @@ void runVoucherSwap() {
         
         kernel_slide_init();
         kbase = (kernel_slide + KADD_SEARCH);
-        selfproc_cached = selfproc();
+        set_selfproc(selfproc());
         runShenPatchOWO = true;
         
     } else {
