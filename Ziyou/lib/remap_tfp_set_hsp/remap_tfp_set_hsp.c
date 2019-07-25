@@ -74,16 +74,11 @@ out:;
 
 uint64_t get_proc_struct_for_pid(pid_t pid)
 {
-    if (get_selfproc() == 0)
+    if (get_selfproc() != 0 && pid == getpid())
     {
-        uint64_t proc = ReadKernel64(ReadKernel64(GETOFFSET(kernel_task)) + koffset(KSTRUCT_OFFSET_TASK_BSD_INFO));
-        while (proc) {
-            if (ReadKernel32(proc + koffset(KSTRUCT_OFFSET_PROC_PID)) == pid)
-                return proc;
-            proc = ReadKernel64(proc + koffset(KSTRUCT_OFFSET_PROC_P_LIST));
-        }
-    } else {
         return get_selfproc();
+    } else {
+        return get_proc_struct_for_pid_ff(pid);
     }
     return 0;
 }
