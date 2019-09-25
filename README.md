@@ -15,26 +15,32 @@ This software was built from research from a bunch of different developers. The 
 
 # Credits
 
-@Jakeashacks (For helping with bug fixes, jelbreklib, and more)
+[@Jakeashacks](https://twitter.com/Jakeashacks) (For helping with bug fixes, jelbreklib, and more)
 
-@Pwn20wnd  (For helping @Chr0nicT understand some stuff, remount, sandbox extensions function for jailbreakd, exploits)
+[@pwn20wnd](https://twitter.com/Pwn20wnd) (For helping @Chr0nicT understand some stuff, remount, sandbox extensions function for jailbreakd, exploits)
 
-@iBSparkes (Exploits)
+[@iBSparkes](https://twitter.com/iBSparkes) (Exploits)
 
-@_bazad (Exploits, kernel_call)
+[@_bazad](https://twitter.com/_bazad) (Exploits, kernel_call)
 
-@xerub (patchfinder64)
+[@xerub](https://twitter.com/xerub) (patchfinder64)
 
-@comex (Substitute)
+[@comex](https://twitter.com/comex) (Substitute)
 
-@saurik (Cydia)
+[@saurik](https://twitter.com/saurik) (Cydia)
 
-@maxbridgland
+### Original Team Members
 
-@Chr0nicT
+[@maxbridgland](https://twitter.com/maxbridgland)
 
-@BrandonPlank6
+[@ChronicT](https://twitter.com/Pwn20wnd)
 
-@ConorTheDev
+[@BrandonD3V](https://twitter.com/BrandonD3V)
 
-@DaveWijk
+[@TotallyNotNero](https://twitter.com/TotallyNotNero)
+
+[@ConorTheDev](https://twitter.com/ConorTheDev)
+
+[@DaveWijk](https://twitter.com/DaveWijk)
+
+[@iCH3F](https://twitter.com/iCH3F)
