@@ -35,7 +35,7 @@ Sadly, to  maintain proper control of an unreleased project, the iOS Jailbreak i
 
 [@maxbridgland](https://twitter.com/maxbridgland)
 
-[@ChronicT](https://twitter.com/Pwn20wnd)
+[@ChronicT](https://twitter.com/Chr0nicT)
 
 [@BrandonD3V](https://twitter.com/BrandonD3V)
 
