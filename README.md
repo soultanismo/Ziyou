@@ -6,6 +6,11 @@
 </center>
 
 # What is this?
+# Backstory
+
+Chr0nicT and a couple other coders (including me) got together early this year to create Tw3lve; a jailbreak with customization. It was called out by many to be a copy of unc0ver, another jailbreak at the time. It was taken down at teh end and pushed into obsoletion (if that's a word). Chr0nic, aka his real name Tanay, decided to learn more about iOS to create another, drama-free jailbreak; Slice. This was hopefully the start of a new era, as Pwn20wnd decided to help Tanay learn more about Substitute and jailbreaking, among other things. Pwn20wnd called out Tanay, saying he destroyed the unc0ver Substitute branch. Slice was never released. 
+
+Ziyou is a jailbreak developed on the foundation of Slice, with the same freedom, flexability, and ability to customize every aspect of your device. This project was divided into two; an iOS Jailbreak, and a watchOS one. The iOS part was mainly coded over the summer, and the watchOS one depended on many people with different skills. The end result will hopefully be what we imagined - a fully featured jailbreak capable of serving two Operating systems.
 
 
 # Credits
